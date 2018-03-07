@@ -1,0 +1,41 @@
+task_family: "SE-SERVICES"
+task_role_arn: ''
+network_mode: "bridge"
+c1_appname: socialengine
+c1_cpu: 1024
+c1_memory: 2048
+c1_soft_memory: 1024
+c1_ports:
+  - c1hostPort: 8080
+    c1containerPort: 80
+    c1protocol: tcp
+c1_image: 474560118046.dkr.ecr.us-west-2.amazonaws.com/se:{{ build_no | default ('latest')}}
+c1_essential: True
+c1_privileged: False
+c1_environment_variables:
+  - c1name : APP_ENV
+    c1value: development
+  - c1name : DB_HOST
+    c1value: se.ccb0ahsdlfzt.us-west-2.rds.amazonaws.com
+  - c1name : DB_NAME
+    c1value: se
+  - c1name : DB_PASSW
+    c1value: seAdm1np
+  - c1name : DB_USER
+    c1value: admin
+#Setup logs for SocialEngine
+#c1_awslogs_group: Application-logs-{{env}}
+#c1_log_region: ap-southeast-2
+#c1_awslogs_stream_prefix: socialengine-service-logs
+#c1_docker_labels: socialengine-containers
+#c1_docker_security_options: no-new-privileges
+
+
+# Service Setup
+cluster_name: "SocialEngineCluster"
+service_name: "SocialEngine"
+count: "2"
+
+# Stage to Prod it has to be rolling update
+maximumPercent: 200
+minimumHealthyPercent: 50

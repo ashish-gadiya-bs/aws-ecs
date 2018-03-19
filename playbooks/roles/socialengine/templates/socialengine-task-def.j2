@@ -29,6 +29,11 @@ containers:
        dockerSecurityOptions:
            - {{ c1_docker_security_options }}
 
+       mountPoints: {% for mount in c1_mount_points_variables %}
+
+       - sourceVolume: {{ mount['c1name'] }}
+         containerPath: {{ mount['c1value'] }} {% endfor %}
+
     # ***********************************************************************************************************
     # Service parameters will be used to create service
     # We can add load balancers alo if required.

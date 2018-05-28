@@ -35,9 +35,9 @@ containers:
 	 readOnly: false
          containerPath: {{ mount['c1value'] }} {% endfor %}
 
-volumes: {% for mount in c1_mount_points_variables %}
+volumes:
   - name: "source_app"
-    sourcePath: {{ mount['c1name'] }} {% endfor %}
+    sourcePath: "/opt/bitnami/apps/jenkins/jenkins_home/workspace/SocialEngine-Builder/"
 
     # ***********************************************************************************************************
     # Service parameters will be used to create service

@@ -24,8 +24,8 @@ c1_environment_variables:
   - c1name : DB_USER
     c1value: admin
 c1_mount_points_variables:
-  - c1name : "/opt/bitnami/apps/jenkins/jenkins_home/workspace/SocialEngine-Builder/"
-    c1value: "/app/"
+  - c1name : {{se_app_source_code_builder_path}}
+    c1value: "/app"
 #Setup logs for SocialEngine
 #c1_awslogs_group: Application-logs-{{env}}
 #c1_log_region: ap-southeast-2

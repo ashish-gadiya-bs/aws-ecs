@@ -35,6 +35,7 @@ containers:
          containerPath: {{ mount['c1value'] }} {% endfor %}
 
     volumes: {% for mount in c1_mount_points_variables %}
+
      - name: source_app
        host:
         sourcePath: {{ mount['c1name'] }} {% endfor %}

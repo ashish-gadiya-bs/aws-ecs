@@ -31,7 +31,7 @@ containers:
 
        mountPoints: {% for mount in c1_mount_points_variables %}
 
-       - sourceVolume: source_app
+       - sourceVolume: {{ mount['c1name'] }}
          readOnly: false
          containerPath: {{ mount['c1value'] }} {% endfor %}
 
@@ -74,8 +74,8 @@ containers:
       - cluster:  {{ cluster_name }}
         serviceName: {{ service_name }}
 
-    volumes: {% for mount in c1_mount_points_variables %}
+    #volumes: {% for mount in c1_mount_points_variables %}
 
-     - name: source_app
-       host:
-        sourcePath: {{ mount['c1name'] }} {% endfor %}
+    # - name: source_app
+    #   host:
+    #    sourcePath: {{ mount['c1name'] }} {% endfor %}

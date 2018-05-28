@@ -33,6 +33,7 @@ containers:
 
        - sourceVolume: source_app
          containerPath: {{ mount['c1value'] }} {% endfor %}
+
     volumes
      - name: source_app
        host:

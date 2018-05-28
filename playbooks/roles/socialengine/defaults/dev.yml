@@ -24,7 +24,7 @@ c1_environment_variables:
   - c1name : DB_USER
     c1value: admin
 c1_mount_points_variables:
-  - c1name : {{se_app_source_code_builder_path}}
+  - c1name : "{{se_app_source_code_builder_path}}"
     c1value: "/app"
 
 #Setup logs for SocialEngine

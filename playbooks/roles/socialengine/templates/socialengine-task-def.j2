@@ -31,7 +31,7 @@ containers:
 
        mountPoints: {% for mount in c1_mount_points_variables %}
 
-       - sourceVolume: "source_app"
+       - sourceVolume: source_app
          containerPath: {{ mount['c1value'] }} {% endfor %}
 
     # ***********************************************************************************************************
@@ -73,6 +73,6 @@ containers:
       - cluster:  {{ cluster_name }}
         serviceName: {{ service_name }}
 volumes:
-  - name: "source_app"
+  - name: source_app
     host:
       sourcePath: "/opt/bitnami/apps/jenkins/jenkins_home/workspace/SocialEngine-Builder/"

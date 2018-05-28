@@ -35,6 +35,10 @@ containers:
 	 readOnly: false
          containerPath: {{ mount['c1value'] }} {% endfor %}
 
+volumes: {% for mount in c1_mount_points_variables %}
+  - name: "source_app"
+    sourcePath: {{ mount['c1name'] }} {% endfor %}
+
     # ***********************************************************************************************************
     # Service parameters will be used to create service
     # We can add load balancers alo if required.
@@ -73,8 +77,3 @@ containers:
     serviceDelete:
       - cluster:  {{ cluster_name }}
         serviceName: {{ service_name }}
-
-volumes: {% for mount in c1_mount_points_variables %}
-  - name: "source_app"
-    host:
-      sourcePath: {{ mount['c1name'] }} {% endfor %}

@@ -23,9 +23,13 @@ c1_environment_variables:
     c1value: seAdm1nrds
   - c1name : DB_USER
     c1value: admin
-c1_mount_points_variables:
-  - c1name : "{{se_app_source_code_builder_path}}/"
-    c1value: "/app/"
+# Volume attachment
+
+c1_mount_points_src_volume_name: "source_build_app"
+c1_mount_points_volume_src_path: "{{se_app_source_code_builder_path}}/"
+c1_mount_points_container_path: "/app/"
+c1_mount_points_readonly_bool: False
+
 
 #Setup logs for SocialEngine
 #c1_awslogs_group: Application-logs-{{env}}

@@ -29,10 +29,10 @@ containers:
        dockerSecurityOptions:
            - {{ c1_docker_security_options }}
 
-       mountPoints:
-       - sourceVolume: {{ c1_mount_points_src_volume_name }}
-         containerPath: {{ c1_mount_points_container_path }}
-         readOnly: {{ c1_mount_points_readonly_bool }}
+       #mountPoints:
+       #- sourceVolume: {{ c1_mount_points_src_volume_name }}
+       #  containerPath: {{ c1_mount_points_container_path }}
+       #  readOnly: {{ c1_mount_points_readonly_bool }}
     volumes:
        - name: {{ c1_mount_points_src_volume_name }}
          host:
